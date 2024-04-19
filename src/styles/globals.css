@@ -1,0 +1,747 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.__next {
+  height: 100%;
+}
+
+/* If the user prefers dark mode, 
+we of course apply color-scheme: dark, as usual */
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* If the user prefers light mode, 
+we still enforce color-scheme: dark, despite the user preference */
+@media (prefers-color-scheme: light) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Scrollbar */
+/* For Webkit browsers */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-track:active {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) rgba(0, 0, 0, 0.1);
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
+
+/* Icons */
+
+.InxLogo {
+  background-image: url("/icons/svg/InxLogo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.InxLogo-white {
+  background-image: url("/icons/svg/InxLogo-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.insightxlogo-white {
+  background-image: url("/icons/svg/InsightxLogo-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-default-white {
+  background-image: url("/icons/svg/wallet-default-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-default-gray {
+  background-image: url("/icons/svg/wallet-default-gray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-default-black {
+  background-image: url("/icons/svg/wallet-default-black.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.AddNewAlerts {
+  background-image: url("/icons/svg/AddNewAlerts.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.AddNewAlerts-white {
+  background-image: url("/icons/svg/AddNewAlerts-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.MoneyWalletAdd {
+  background-image: url("/icons/svg/MoneyWalletAdd.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.PlusSm {
+  background-image: url("/icons/svg/PlusSm.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.QuestionMarkCircle {
+  background-image: url("/icons/svg/QuestionMarkCircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ExclamationCircle {
+  background-image: url("/icons/svg/ExclamationCircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ExclamationCircleSuccessFailed {
+  background-image: url("/icons/svg/ExclamationCircleSuccessFailed.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ExclamationCircleSuccessFailedBig {
+  background-image: url("/icons/svg/ExclamationCircleSuccessFailedBig.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ExclamationTriangle {
+  background-image: url("/icons/svg/ExclamationTriangle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.CheckCircle {
+  background-image: url("/icons/svg/CheckCircle.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.CheckCircleTransparent {
+  background-image: url("/icons/svg/CheckCircleTransparent.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.check {
+  background-image: url("/icons/svg/check.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.checkwhite {
+  background-image: url("/icons/svg/checkwhite.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.walletIcon {
+  background-image: url("/icons/svg/WalletIcon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.walletIconExplanationMark {
+  background-image: url("/icons/svg/WalletIconExplanationMark.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.dotsVertical {
+  background-image: url("/icons/svg/DotsVertical.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.trashcan {
+  background-image: url("/icons/svg/Trashcan.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.trashcanwhite {
+  background-image: url("/icons/svg/Trashcanwhite.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.trashcangray {
+  background-image: url("/icons/svg/Trashcangray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.Exclamation {
+  background-image: url("/icons/svg/Exclamation.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.Exclamationwhite {
+  background-image: url("/icons/svg/Exclamationwhite.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.duplicate {
+  background-image: url("/icons/svg/Duplicate.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-default-gray-empty {
+  background-image: url("/icons/svg/wallet-default-gray-empty.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.exit {
+  background-image: url("/icons/svg/Exit.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.exit-white {
+  background-image: url("/icons/svg/Exit-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.rocket {
+  background-image: url("/icons/svg/Rocket.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.external {
+  background-image: url("/icons/svg/external.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.walletCircles {
+  background-image: url("/icons/svg/walletCircles.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-add {
+  background-image: url("/icons/svg/wallet-add.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-add-gray {
+  background-image: url("/icons/svg/wallet-add-gray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-cross {
+  background-image: url("/icons/svg/wallet-cross.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.metamask-icon {
+  background-image: url("/icons/svg/metamask-icon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.padlock {
+  background-image: url("/icons/svg/Padlock.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.home {
+  background-image: url("/icons/svg/Home.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.bell {
+  background-image: url("/icons/svg/Bell.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.groupIcon {
+  background-image: url("/icons/svg/Group.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.search {
+  background-image: url("/icons/svg/Search.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.searchMoreGray {
+  background-image: url("/icons/svg/SearchMoreGray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.chartBar {
+  background-image: url("/icons/svg/Chartbar.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.corg {
+  background-image: url("/icons/svg/Corg.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.signout {
+  background-image: url("/icons/svg/Signout.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.reset {
+  background-image: url("/icons/svg/Reset.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.last7days {
+  background-image: url("/icons/svg/last7days.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.last14days {
+  background-image: url("/icons/svg/last14days.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.last30days {
+  background-image: url("/icons/svg/last30days.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.last90days {
+  background-image: url("/icons/svg/last90days.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.alltime {
+  background-image: url("/icons/svg/alltime.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.closexicon {
+  background-image: url("/icons/svg/CloseXIcon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-default-moregray {
+  background-image: url("/icons/svg/wallet-default-moregray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.duplicate-filled {
+  background-image: url("/icons/svg/Duplicate-filled.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.add-new-alerts {
+  background-image: url("/icons/svg/add-new-alerts.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.star-favorite-add {
+  background-image: url("/icons/svg/star-favorite-add.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.aiRobot {
+  background-image: url("/icons/svg/aiRobot.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.search-white {
+  background-image: url("/icons/svg/Search-white.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.calender-1day {
+  background-image: url("/icons/svg/calendar-1day.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.shareIcon {
+  background-image: url("/icons/svg/shareIcon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.shareBtn {
+  background-image: url("/icons/svg/shareBtn.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.editMode {
+  background-image: url("/icons/svg/editMode.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.externalArrow {
+  background-image: url("/icons/svg/externalArrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.swapArrow {
+  background-image: url("/icons/svg/swapArrow.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.iconReceive {
+  background-image: url("/icons/svg/iconReceive.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.iconSend {
+  background-image: url("/icons/svg/iconSend.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.iconSwap {
+  background-image: url("/icons/svg/iconSwap.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.iconReceiveBig {
+  background-image: url("/icons/svg/iconReceiveBig.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.iconSendBig {
+  background-image: url("/icons/svg/iconSendBig.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.iconSwapBig {
+  background-image: url("/icons/svg/iconSwapBig.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.ethereum-eth-logo {
+  background-image: url("/icons/svg/ethereum-eth-logo.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.sorting {
+  background-image: url("/icons/svg/sorting.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.sortingDown {
+  background-image: url("/icons/svg/sortingDown.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.sortingUp {
+  background-image: url("/icons/svg/sortingUp.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.starOrange {
+  background-image: url("/icons/svg/starOrange.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.starGray {
+  background-image: url("/icons/svg/starGray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-checkmarked {
+  background-image: url("/icons/svg/wallet-checkmarked.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.wallet-default-darkgray {
+  background-image: url("/icons/svg/wallet-default-darkgray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.portfolioAdd {
+  background-image: url("/icons/svg/portfolioAdd.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.portfolioAdded {
+  background-image: url("/icons/svg/portfolioAdded.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.productExchange {
+  background-image: url("/icons/svg/productExchange.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.productDegen {
+  background-image: url("/icons/svg/productDegen.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.productJeet {
+  background-image: url("/icons/svg/productJeet.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.chevron_down {
+  background-image: url("/icons/svg/chevron_down.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.DotsVertical_darker {
+  background-image: url("/icons/svg/DotsVertical_darker.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.DotsVertical_darker_inverted {
+  background-image: url("/icons/svg/DotsVertical_darker_inverted.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.editName {
+  background-image: url("/icons/svg/editName.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.externalArrow_moreGray {
+  background-image: url("/icons/svg/externalArrow_moreGray.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.duplicate-filled_inverted {
+  background-image: url("/icons/svg/Duplicate-filled_inverted.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.pen_orange {
+  background-image: url("/icons/svg/pen_orange.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+@keyframes FadeIn {
+  0% {
+    transform: translate(0px, 500px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
+}
+
+.modal {
+  animation-name: FadeIn;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+}
