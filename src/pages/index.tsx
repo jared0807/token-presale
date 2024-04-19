@@ -12,6 +12,7 @@ import {
   usePublicClient,
   useWalletClient,
   useWriteContract,
+  type UsePublicClientReturnType,
 } from "wagmi";
 
 import { parseEther, formatEther } from "ethers";
@@ -25,11 +26,11 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = () => {
   const [FTMAmount, setFTMAmount] = useState(0);
-  const [curFTMBalance, setCurFTMBalance] = useState<Object>();
+  const [curFTMBalance, setCurFTMBalance] = useState<string>();
   const [isBuy, setIsBuy] = useState(false);
   const { address, isConnected } = useAccount();
   const { data: walletClient } = useWalletClient();
-  const publicClient: any = usePublicClient();
+  const publicClient: UsePublicClientReturnType = usePublicClient();
 
   const curBalance = useBalance({
     address: address,
@@ -42,20 +43,21 @@ const Home: React.FC<HomeProps> = () => {
 
   const buyTokens = async () => {
     setIsBuy(true);
-    if (!walletClient) return;
-    try {
-      const res = await walletClient.writeContract({
-        abi: BuySaleABI,
-        address: process.env.NEXT_PUBLIC_BUYSALE_ADDR as Address,
-        functionName: "buyTokens",
-        value: parseEther(FTMAmount.toString()),
-      });
-      await publicClient.waitForTransactionReceipt({ hash: res });
-    } catch (e) {
-      console.log(e);
-    }
+    if (walletClient && publicClient) {
+      try {
+        const res = await walletClient.writeContract({
+          abi: BuySaleABI,
+          address: process.env.NEXT_PUBLIC_BUYSALE_ADDR as Address,
+          functionName: "buyTokens",
+          value: parseEther(FTMAmount.toString()),
+        });
+        await publicClient.waitForTransactionReceipt({ hash: res });
+      } catch (e) {
+        console.log(e);
+      }
 
-    setIsBuy(false);
+      setIsBuy(false);
+    }
   };
   return (
     <>
@@ -110,7 +112,7 @@ const Home: React.FC<HomeProps> = () => {
                 <button
                   className={`flex w-full cursor-pointer justify-center rounded-[15px] bg-[#E27714] py-6 text-white hover:bg-[#995415]`}
                   onClick={() => {
-                    buyTokens();
+                    buyTokens().catch(console.error);
                   }}
                 >
                   {isBuy ? (
