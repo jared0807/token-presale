@@ -14,11 +14,9 @@ const NavbarTopMobile: React.FC<NavbarTopMobileProps> = ({
       className={`inline-flex h-16 w-full items-center justify-between gap-4 bg-gray-900`}
     >
       <div className="flex items-center pl-4 [flex-grow:1]">
-        <button
-          className="InxLogo-white block h-8 w-[76px]"
-          onClick={toggleNavbar}
-        >
+        <button className="block h-8 w-[76px]" onClick={toggleNavbar}>
           {/*Logo*/}
+          <img src="/favicon.png" className="h-20 w-20" />
         </button>
       </div>
       <div className="flex items-center justify-end gap-2 opacity-0">
